@@ -4,10 +4,10 @@ import Image from "next/image";
 
 interface Work {
   name: string;
+  desc: string;
   image: string | null;
   large?: boolean;
   position?: string;
-  scale?: string;
 }
 
 interface WorksCategoryProps {
@@ -38,10 +38,7 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
                   fill
                   sizes="(max-width: 768px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  style={{
-                    ...(work.position ? { objectPosition: work.position } : {}),
-                    ...(work.scale ? { transform: `scale(${work.scale})` } : {}),
-                  }}
+                  style={work.position ? { objectPosition: work.position } : undefined}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent group-hover:from-black/80 transition-colors" />
               </>
@@ -55,6 +52,7 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
             )}
             <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
               <h4 className="text-lg md:text-xl font-bold">{work.name}</h4>
+              <p className="text-white/60 text-sm mt-1">{work.desc}</p>
             </div>
           </div>
         ))}
@@ -67,29 +65,29 @@ const categories: WorksCategoryProps[] = [
   {
     title: "Experiencias propias",
     works: [
-      { name: "Vino al Roble", image: "/images/roble-dj.jpg", large: true },
-      { name: "Isidris Sunset", image: "/images/isidris-works.jpg" },
-      { name: "La Sala", image: "/images/la-sala-green.jpg" },
-      { name: "Vino a la Nave", image: "/images/nave-crowd.jpg" },
-      { name: "Audioholics - Mariano Mellino", image: "/images/audioholics.jpg" },
-      { name: "Club Edition", image: "/images/club-edition-works.jpg", large: true },
-      { name: "Finquita 1920", image: "/images/finquita-servicio.jpg" },
+      { name: "Vino al Roble", desc: "Encuentros en torno al vino, la gastronomía y la cultura.", image: "/images/roble-dj.jpg", large: true },
+      { name: "Isidris Sunset", desc: "Experiencias de montaña entre vinos, fuegos y atardeceres.", image: "/images/isidris-works.jpg" },
+      { name: "La Sala", desc: "Un espacio para descubrir artistas y vivir la música de cerca.", image: "/images/la-sala-green.jpg" },
+      { name: "Vino a la Nave", desc: "Vino, gastronomía y música en un entorno cultural único.", image: "/images/nave-crowd.jpg" },
+      { name: "Audioholics", desc: "Experiencias inmersivas para amantes de la música electrónica.", image: "/images/audioholics.jpg" },
+      { name: "Club Edition", desc: "Eventos de música electrónica en espacios no convencionales.", image: "/images/club-edition-works.jpg", large: true },
+      { name: "Finquita 1920", desc: "Experiencias boutique con identidad mendocina.", image: "/images/finquita-servicio.jpg" },
     ],
   },
   {
     title: "Activaciones de marca",
     works: [
-      { name: "Royal Enfield", image: "/images/royal-enfield-real.jpg" },
-      { name: "Tecno", image: "/images/tecno.webp" },
-      { name: "Tucci", image: "/images/tucci.jpg" },
+      { name: "Royal Enfield", desc: "Experiencias de marca que conectan producto y comunidad.", image: "/images/royal-enfield-real.jpg" },
+      { name: "Tecno", desc: "Lanzamientos y activaciones con foco en innovación y tecnología.", image: "/images/tecno.webp" },
+      { name: "Tucci", desc: "Producción integral para inauguraciones y aperturas comerciales.", image: "/images/tucci.jpg" },
     ],
   },
   {
     title: "Eventos masivos",
     works: [
-      { name: "Peatonal del Vino 2025", image: "/images/peatonal-vino.jpg" },
-      { name: "Aniversario Arístides 2025", image: "/images/aristides-2025.jpg" },
-      { name: "Aniversario Arístides 2026", image: "/images/aristides-2026.jpg" },
+      { name: "Peatonal del Vino", desc: "Una celebración urbana del vino en el corazón de Mendoza.", image: "/images/peatonal-vino.jpg" },
+      { name: "Aniversario Arístides 2025", desc: "Producción de uno de los eventos públicos más convocantes de la ciudad.", image: "/images/aristides-2025.jpg" },
+      { name: "Aniversario Arístides 2026", desc: "Producción de uno de los eventos públicos más convocantes de la ciudad.", image: "/images/aristides-2026.jpg" },
     ],
   },
 ];
