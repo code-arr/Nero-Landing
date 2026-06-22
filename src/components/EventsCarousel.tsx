@@ -6,19 +6,35 @@ import Image from "next/image";
 const events = [
   {
     id: 1,
-    name: "Isidris Sunset - Fuegos de Invierno",
-    description: "Experiencia de montaña con vinos seleccionados, cocina al fuego y música al atardecer. 16 bodegas y más de 50 etiquetas en degustación.",
-    image: "/images/isidris-fuegos.png",
-    date: "Sáb 18 Jul",
-    url: "https://isidriseventos.com/events/fuegos-de-invierno-18-07",
+    name: "Mi Amigo Invencible",
+    image: "/images/amigo-invencible.png",
+    date: "Vie 4 Jul",
+    url: "#",
+    contain: true,
   },
   {
     id: 2,
+    name: "Club Edition",
+    image: "/images/club-edition.png",
+    date: "Vie 4 Jul",
+    url: "#",
+    contain: true,
+  },
+  {
+    id: 3,
+    name: "Isidris Sunset - Fuegos de Invierno",
+    image: "/images/isidris-fuegos.png",
+    date: "Sáb 18 Jul",
+    url: "https://isidriseventos.com/events/fuegos-de-invierno-18-07",
+    contain: false,
+  },
+  {
+    id: 4,
     name: "Isla de Caras - La Sala Club",
-    description: "La Sala Club presenta Isla de Caras. Un nuevo espacio para disfrutar de la música en vivo en Bodega Giol.",
     image: "/images/isla-de-caras.png",
     date: "Dom 16 Ago",
     url: "https://bullaccess.com.ar/events/isladecaras",
+    contain: false,
   },
 ];
 
@@ -27,9 +43,8 @@ export default function EventsCarousel() {
 
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
-    const amount = 340;
     scrollRef.current.scrollBy({
-      left: direction === "left" ? -amount : amount,
+      left: direction === "left" ? -340 : 340,
       behavior: "smooth",
     });
   };
@@ -48,13 +63,16 @@ export default function EventsCarousel() {
 
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4"
+        className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {events.map((event) => (
-          <div
+          <a
             key={event.id}
-            className="snap-start shrink-0 w-[300px] md:w-[320px] bg-surface-light border border-white/5 rounded-2xl overflow-hidden card-hover group flex flex-col"
+            href={event.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="snap-start shrink-0 w-[280px] md:w-[300px] group block rounded-2xl overflow-hidden bg-[#1a1a1a]"
           >
             <div className="relative aspect-[3/4] overflow-hidden">
               <Image
@@ -63,27 +81,13 @@ export default function EventsCarousel() {
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute top-3 left-3">
-                <span className="bg-white text-black text-xs font-bold px-3 py-1 rounded-full">
-                  {event.date}
-                </span>
-              </div>
             </div>
-            <div className="p-5 flex flex-col flex-1">
-              <h3 className="text-lg font-bold mb-2 leading-tight">{event.name}</h3>
-              <p className="text-white/40 text-sm leading-relaxed mb-4 line-clamp-2 flex-1">
-                {event.description}
-              </p>
-              <a
-                href={event.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center bg-white hover:bg-white/90 text-black font-semibold py-2.5 rounded-full transition-all hover:scale-[1.02] text-sm"
-              >
+            <div className="p-4">
+              <span className="block w-full text-center bg-white hover:bg-white/90 text-black font-semibold py-2.5 rounded-full transition-all hover:scale-[1.02] text-sm">
                 Comprar entradas
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
         ))}
       </div>
 

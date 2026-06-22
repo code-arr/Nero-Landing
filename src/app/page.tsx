@@ -3,16 +3,18 @@ import Navbar from "@/components/Navbar";
 import FloatingButtons from "@/components/FloatingButtons";
 import EventsCarousel from "@/components/EventsCarousel";
 import ContactForm from "@/components/ContactForm";
+import WorksCarousel from "@/components/WorksCarousel";
 
 export default function Home() {
   return (
-    <>
+    <div className="relative">
+      <div className="hero-text-pattern fixed inset-0 select-none pointer-events-none z-0" aria-hidden="true" />
+      <div className="relative z-10">
       <Navbar />
       <FloatingButtons />
 
       {/* HERO */}
-      <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        <div className="hero-text-pattern absolute inset-0 select-none" aria-hidden="true" />
+      <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center px-6">
           <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-none mb-2">
             NERO
@@ -34,111 +36,149 @@ export default function Home() {
       </section>
 
       {/* QUIÉNES SOMOS */}
-      <section id="nosotros" className="section-surface py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <p className="text-white/40 font-semibold text-sm tracking-widest uppercase mb-4">Quiénes somos</p>
-            <h2 className="text-3xl md:text-5xl font-black leading-tight mb-6">
-              Producimos experiencias, no solo eventos
-            </h2>
-            <p className="text-white/50 text-lg leading-relaxed">
-              Somos una productora integral de Mendoza. Nos encargamos de todo: concepto, logística, ambientación, sonido, luces, contenido audiovisual y gastronomía. <span className="text-white font-medium">Vos ponés la idea, nosotros la hacemos realidad.</span>
-            </p>
-          </div>
+      <section id="nosotros" className="py-24 md:py-32">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* Left — Text */}
+            <div>
+              <p className="text-white/40 font-semibold text-sm tracking-widest uppercase mb-4">Quiénes somos</p>
+              <h2 className="text-3xl md:text-5xl font-black leading-tight mb-6">
+                Producimos experiencias,<br />no solo eventos.
+              </h2>
+              <p className="text-white/50 text-lg leading-relaxed mb-12">
+                Somos una productora integral de Mendoza. Diseñamos y producimos experiencias que conectan marcas, cultura y personas. <span className="text-white font-medium">Vos ponés la idea, nosotros la hacemos realidad.</span>
+              </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {[
-              { image: "/images/nave-crowd.jpg", label: "Eventos masivos", className: "col-span-2 row-span-2 aspect-square md:aspect-auto" },
-              { image: "/images/musica-vivo.jpg", label: "Música en vivo", className: "aspect-square" },
-              { image: "/images/copa-vino.jpg", label: "Catas y degustaciones", className: "aspect-square" },
-              { image: "/images/royal-enfield.jpg", label: "Activaciones de marca", className: "aspect-square" },
-              { image: "/images/finquita-servicio.jpg", label: "Gastronomía y catering", className: "aspect-square" },
-              { image: "/images/jagger-confetti.jpg", label: "Fiestas y nocturnos", className: "col-span-2 aspect-[2/1]" },
-              { image: "/images/outdoor.jpg", label: "Experiencias al aire libre", className: "col-span-2 aspect-[2/1]" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className={`group relative rounded-2xl overflow-hidden ${item.className}`}
-              >
-                <Image
-                  src={item.image}
-                  alt={item.label}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-                  <p className="text-sm md:text-base font-bold tracking-wide">{item.label}</p>
+              <div className="space-y-8">
+                {[
+                  {
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                    ),
+                    title: "Idea",
+                    desc: "Desarrollamos conceptos creativos que conectan con las personas.",
+                  },
+                  {
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                      </svg>
+                    ),
+                    title: "Producción integral",
+                    desc: "Nos encargamos de todo: logística, contenido, sonido, luces y más.",
+                  },
+                  {
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    ),
+                    title: "Ejecución",
+                    desc: "Coordinamos equipos, proveedores, marcas e instituciones para que todo suceda.",
+                  },
+                  {
+                    icon: (
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    ),
+                    title: "Resultados",
+                    desc: "Transformamos ideas en experiencias memorables que generan impacto real.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="flex gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0 text-white/60">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-sm uppercase tracking-wider mb-1">{item.title}</h3>
+                      <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — Photo grid with stats */}
+            <div className="grid grid-cols-3 gap-3">
+              {/* Top row: 2 photos spanning */}
+              <div className="col-span-2 relative rounded-2xl overflow-hidden aspect-[4/3]">
+                <Image src="/images/nave-crowd.jpg" alt="Eventos realizados" fill className="object-cover" />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-3xl md:text-4xl font-black">+150</p>
+                  <p className="text-white/70 text-xs font-semibold uppercase tracking-wider">Eventos realizados</p>
                 </div>
               </div>
-            ))}
+              <div className="col-span-1 relative rounded-2xl overflow-hidden aspect-[3/4]">
+                <Image src="/images/jagger-confetti.jpg" alt="Asistentes" fill className="object-cover" />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-2xl md:text-3xl font-black">+100K</p>
+                  <p className="text-white/70 text-[10px] font-semibold uppercase tracking-wider leading-tight">Asistentes en nuestros eventos</p>
+                </div>
+              </div>
+
+              {/* Bottom row: 3 photos */}
+              <div className="relative rounded-2xl overflow-hidden aspect-square">
+                <Image src="/images/royal-enfield.jpg" alt="Marcas" fill className="object-cover" />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-2xl md:text-3xl font-black">+50</p>
+                  <p className="text-white/70 text-[10px] font-semibold uppercase tracking-wider leading-tight">Marcas acompañadas</p>
+                </div>
+              </div>
+              <div className="relative rounded-2xl overflow-hidden aspect-square">
+                <Image src="/images/copa-vino.jpg" alt="Bodegas" fill className="object-cover" />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-2xl md:text-3xl font-black">+20</p>
+                  <p className="text-white/70 text-[10px] font-semibold uppercase tracking-wider leading-tight">Bodegas por edición en ciclos enogastronómicos</p>
+                </div>
+              </div>
+              <div className="relative rounded-2xl overflow-hidden aspect-square">
+                <Image src="/images/finquita-servicio.jpg" alt="Trayectoria" fill className="object-cover" />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-2xl md:text-3xl font-black">+10</p>
+                  <p className="text-white/70 text-[10px] font-semibold uppercase tracking-wider leading-tight">Años de trayectoria en la industria</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sponsors placeholder */}
+          <div className="mt-20 border-t border-white/10 pt-12">
+            <p className="text-white/30 font-semibold text-xs tracking-widest uppercase text-center mb-8">Confían en nosotros</p>
+            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap opacity-50">
+              <p className="text-white/30 text-sm italic">Logos de sponsors próximamente</p>
+            </div>
+          </div>
+
+          {/* Quote */}
+          <div className="mt-16 text-center">
+            <p className="text-white/40 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto italic">
+              &ldquo;Creemos en el poder de las experiencias para unir personas, potenciar marcas y dejar huella.&rdquo;
+            </p>
           </div>
         </div>
       </section>
 
       {/* TRABAJOS DESTACADOS */}
-      <section id="trabajos" className="relative py-24 md:py-32 bg-black overflow-hidden">
-        <div className="hero-text-pattern absolute inset-0 select-none" aria-hidden="true" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <section id="trabajos" className="relative py-24 md:py-32 overflow-hidden">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-white/40 font-semibold text-sm tracking-widest uppercase mb-4">Portfolio</p>
             <h2 className="text-3xl md:text-5xl font-black">Casos destacados</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Vino a la Nave",
-                desc: "Ciclo cultural donde se unen la música, el vino, el arte y la comunidad. Más de 10.000 personas vivieron esta experiencia.",
-                image: "/images/nave-crowd.jpg",
-                tag: "Ciclo cultural",
-              },
-              {
-                title: "Royal Enfield",
-                desc: "Activación para el lanzamiento de producto, integrando estética de marca y experiencia en movimiento en los paisajes de Mendoza.",
-                image: "/images/royal-enfield.jpg",
-                tag: "Activación de marca",
-              },
-              {
-                title: "Vino a El Roble",
-                desc: "Encuentros al aire libre con música, gastronomía y atardeceres inolvidables en un entorno natural único.",
-                image: "/images/roble-dj.jpg",
-                tag: "Evento al aire libre",
-              },
-              {
-                title: "La Finquita 1920",
-                desc: "Evento privado y exclusivo con curaduría de vinos y música en vivo en un espacio moderno y sofisticado.",
-                image: "/images/finquita-servicio.jpg",
-                tag: "Evento privado",
-              },
-            ].map((project) => (
-              <div
-                key={project.title}
-                className="group relative aspect-[16/10] rounded-2xl overflow-hidden cursor-pointer"
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <span className="inline-block bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full mb-3 border border-white/10">
-                    {project.tag}
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-black mb-2">{project.title}</h3>
-                  <p className="text-white/50 text-sm md:text-base leading-relaxed max-w-lg">
-                    {project.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <WorksCarousel />
         </div>
       </section>
 
       {/* VENUES */}
-      <section id="venues" className="section-surface py-24 md:py-32">
+      <section id="venues" className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-white/40 font-semibold text-sm tracking-widest uppercase mb-4">Venues</p>
@@ -153,7 +193,7 @@ export default function Home() {
               {
                 name: "Bodega Giol",
                 desc: "Salón cerrado y espacio Jagger. Versátil, con historia vitivinícola.",
-                image: "/images/vino-nave-live.jpg",
+                image: null as string | null,
               },
               {
                 name: "Nave Cultural",
@@ -173,7 +213,7 @@ export default function Home() {
               {
                 name: "Bodega Dante Robino",
                 desc: "Ideal para cenas privadas y eventos nocturnos con producción escénica.",
-                image: "/images/eventos-nocturnos.jpg",
+                image: null as string | null,
               },
               {
                 name: "Puesto del Indio",
@@ -185,13 +225,24 @@ export default function Home() {
                 key={venue.name}
                 className="group relative aspect-[4/3] rounded-2xl overflow-hidden"
               >
-                <Image
-                  src={venue.image}
-                  alt={venue.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                {venue.image ? (
+                  <>
+                    <Image
+                      src={venue.image}
+                      alt={venue.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  </>
+                ) : (
+                  <div className="absolute inset-0 bg-white/[0.03] border-2 border-dashed border-white/10 flex flex-col items-center justify-center gap-2 rounded-2xl">
+                    <svg className="w-8 h-8 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <p className="text-white/20 text-xs font-medium">Foto pendiente</p>
+                  </div>
+                )}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-xl font-bold mb-1">{venue.name}</h3>
                   <p className="text-white/50 text-sm">{venue.desc}</p>
@@ -203,8 +254,7 @@ export default function Home() {
       </section>
 
       {/* EVENTOS ACTIVOS */}
-      <section id="eventos" className="relative py-24 md:py-32 bg-black overflow-hidden">
-        <div className="hero-text-pattern absolute inset-0 select-none" aria-hidden="true" />
+      <section id="eventos" className="relative py-24 md:py-32 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-white/40 font-semibold text-sm tracking-widest uppercase mb-4">Eventos</p>
@@ -215,7 +265,7 @@ export default function Home() {
       </section>
 
       {/* CONTACTO */}
-      <section id="contacto" className="section-surface py-24 md:py-32">
+      <section id="contacto" className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20">
             <div>
@@ -279,7 +329,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-surface border-t border-white/5 py-12">
+      <footer className="border-t border-white/5 py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
@@ -322,6 +372,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </>
+    </div>
+    </div>
   );
 }
