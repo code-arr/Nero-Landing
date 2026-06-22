@@ -66,7 +66,7 @@ const categories: WorksCategoryProps[] = [
     title: "Experiencias propias",
     works: [
       { name: "Vino al Roble", desc: "Encuentros en torno al vino, la gastronomía y la cultura.", image: "/images/roble-dj.jpg", large: true },
-      { name: "Isidris Sunset", desc: "Experiencias de montaña entre vinos, fuegos y atardeceres.", image: "/images/isidris-works.jpg" },
+      { name: "Isidris Sunset", desc: "Experiencias de montaña entre vinos, fuegos y atardeceres.", image: "/images/isidris-works-2.jpg" },
       { name: "La Sala", desc: "Un espacio para descubrir artistas y vivir la música de cerca.", image: "/images/la-sala-green.jpg" },
       { name: "Vino a la Nave", desc: "Vino, gastronomía y música en un entorno cultural único.", image: "/images/nave-crowd.jpg" },
       { name: "Audioholics", desc: "Experiencias inmersivas para amantes de la música electrónica.", image: "/images/audioholics.jpg" },
