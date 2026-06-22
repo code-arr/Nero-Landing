@@ -13,11 +13,13 @@ export default function ContactForm() {
 
     const form = e.currentTarget;
     const nombre = (form.elements.namedItem("nombre") as HTMLInputElement).value;
+    const tipo = (form.elements.namedItem("tipo") as HTMLSelectElement).value;
     const mensaje = (form.elements.namedItem("mensaje") as HTMLTextAreaElement).value;
 
     const text = `*Nueva consulta desde neroproducciones.com*
 
 *Nombre:* ${nombre}
+*Tipo de evento:* ${tipo}
 
 ${mensaje}`;
 
@@ -57,6 +59,29 @@ ${mensaje}`;
           >
             Tu nombre
           </label>
+        </div>
+
+        <div className="relative">
+          <select
+            id="tipo"
+            name="tipo"
+            required
+            defaultValue=""
+            className="w-full bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-[#25D366]/50 focus:bg-white/[0.06] transition-all appearance-none cursor-pointer"
+          >
+            <option value="" disabled className="bg-[#1a1a1a] text-white/30">Tipo de evento</option>
+            <option value="Activación de marca" className="bg-[#1a1a1a]">Activación de marca</option>
+            <option value="Evento corporativo" className="bg-[#1a1a1a]">Evento corporativo</option>
+            <option value="Experiencia enogastronómica" className="bg-[#1a1a1a]">Experiencia enogastronómica</option>
+            <option value="Festival o ciclo cultural" className="bg-[#1a1a1a]">Festival o ciclo cultural</option>
+            <option value="Evento social" className="bg-[#1a1a1a]">Evento social</option>
+            <option value="Otro" className="bg-[#1a1a1a]">Otro</option>
+          </select>
+          <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+            <svg className="w-4 h-4 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
         </div>
 
         <div className="relative">
