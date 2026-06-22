@@ -69,7 +69,7 @@ const categories: WorksCategoryProps[] = [
     works: [
       { name: "Vino al Roble", image: "/images/roble-dj.jpg", large: true },
       { name: "Isidris Sunset", image: "/images/isidris-works.jpg" },
-      { name: "La Sala", image: "/images/la-sala.jpg" },
+      { name: "La Sala", image: "/images/la-sala-green.jpg" },
       { name: "Vino a la Nave", image: "/images/nave-crowd.jpg" },
       { name: "Audioholics - Mariano Mellino", image: "/images/audioholics.jpg" },
       { name: "Club Edition", image: "/images/club-edition-works.jpg", large: true },
