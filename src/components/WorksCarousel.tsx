@@ -52,7 +52,7 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
             )}
             <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
               <h4 className="text-lg md:text-xl font-bold">{work.name}</h4>
-              <p className="text-white/60 text-sm mt-1">{work.desc}</p>
+              <p className="text-white/60 text-sm mt-1 hidden md:block">{work.desc}</p>
             </div>
           </div>
         ))}
