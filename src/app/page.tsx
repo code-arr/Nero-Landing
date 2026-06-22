@@ -7,14 +7,15 @@ import WorksCarousel from "@/components/WorksCarousel";
 
 export default function Home() {
   return (
-    <div className="relative">
-      <div className="hero-text-pattern fixed inset-0 select-none pointer-events-none z-0" aria-hidden="true" />
-      <div className="relative z-10">
+    <div>
       <Navbar />
       <FloatingButtons />
 
       {/* HERO */}
       <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
+        <Image src="/images/fondo-nero.png" alt="" fill className="object-cover" priority />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_center,rgba(0,0,0,0.95)_0%,rgba(0,0,0,0.7)_40%,rgba(0,0,0,0.2)_80%,rgba(0,0,0,0)_100%)]" />
         <div className="relative z-10 text-center px-6">
           <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-none mb-2">
             NERO
@@ -36,9 +37,9 @@ export default function Home() {
       </section>
 
       {/* QUIÉNES SOMOS */}
-      <section id="nosotros" className="py-24 md:py-32">
+      <section id="nosotros" className="py-24 md:py-32 bg-black">
         <div className="max-w-[1400px] mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-[2fr_3fr] gap-12 lg:gap-10 items-stretch">
             {/* Left — Text */}
             <div>
               <p className="text-white/40 font-semibold text-sm tracking-widest uppercase mb-4">Quiénes somos</p>
@@ -102,18 +103,18 @@ export default function Home() {
             </div>
 
             {/* Right — Photo grid with stats */}
-            <div className="grid grid-cols-3 gap-3">
-              {/* Top row: 2 photos spanning */}
-              <div className="col-span-2 relative rounded-2xl overflow-hidden aspect-[4/3]">
-                <Image src="/images/nave-crowd.jpg" alt="Eventos realizados" fill className="object-cover" />
+            <div className="grid grid-cols-3 grid-rows-[1fr_1fr] gap-3 min-h-[400px] lg:h-full">
+              {/* Top row */}
+              <div className="col-span-2 row-span-1 relative rounded-2xl overflow-hidden">
+                <Image src="/images/eventos-150.jpg" alt="Eventos realizados" fill sizes="(max-width: 768px) 66vw, 35vw" className="object-cover" />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <p className="text-3xl md:text-4xl font-black">+150</p>
                   <p className="text-white/70 text-xs font-semibold uppercase tracking-wider">Eventos realizados</p>
                 </div>
               </div>
-              <div className="col-span-1 relative rounded-2xl overflow-hidden aspect-[3/4]">
-                <Image src="/images/jagger-confetti.jpg" alt="Asistentes" fill className="object-cover" />
+              <div className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden">
+                <Image src="/images/jagger-confetti.jpg" alt="Asistentes" fill sizes="(max-width: 768px) 33vw, 18vw" className="object-cover" />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <p className="text-2xl md:text-3xl font-black">+100K</p>
@@ -121,25 +122,25 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Bottom row: 3 photos */}
-              <div className="relative rounded-2xl overflow-hidden aspect-square">
-                <Image src="/images/royal-enfield.jpg" alt="Marcas" fill className="object-cover" />
+              {/* Bottom row */}
+              <div className="row-span-1 relative rounded-2xl overflow-hidden">
+                <Image src="/images/royal-enfield.jpg" alt="Marcas" fill sizes="(max-width: 768px) 33vw, 18vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <p className="text-2xl md:text-3xl font-black">+50</p>
                   <p className="text-white/70 text-[10px] font-semibold uppercase tracking-wider leading-tight">Marcas acompañadas</p>
                 </div>
               </div>
-              <div className="relative rounded-2xl overflow-hidden aspect-square">
-                <Image src="/images/copa-vino.jpg" alt="Bodegas" fill className="object-cover" />
+              <div className="row-span-1 relative rounded-2xl overflow-hidden">
+                <Image src="/images/copa-vino.jpg" alt="Bodegas" fill sizes="(max-width: 768px) 33vw, 18vw" className="object-cover" />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <p className="text-2xl md:text-3xl font-black">+20</p>
                   <p className="text-white/70 text-[10px] font-semibold uppercase tracking-wider leading-tight">Bodegas por edición en ciclos enogastronómicos</p>
                 </div>
               </div>
-              <div className="relative rounded-2xl overflow-hidden aspect-square">
-                <Image src="/images/finquita-servicio.jpg" alt="Trayectoria" fill className="object-cover" />
+              <div className="row-span-1 relative rounded-2xl overflow-hidden">
+                <Image src="/images/finquita-servicio.jpg" alt="Trayectoria" fill sizes="(max-width: 768px) 33vw, 18vw" className="object-cover" />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <p className="text-2xl md:text-3xl font-black">+10</p>
@@ -167,18 +168,17 @@ export default function Home() {
       </section>
 
       {/* TRABAJOS DESTACADOS */}
-      <section id="trabajos" className="relative py-24 md:py-32 overflow-hidden">
+      <section id="trabajos" className="relative py-24 md:py-32 overflow-hidden bg-black">
         <div className="relative z-10 max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="text-white/40 font-semibold text-sm tracking-widest uppercase mb-4">Portfolio</p>
-            <h2 className="text-3xl md:text-5xl font-black">Casos destacados</h2>
+            <h2 className="text-3xl md:text-5xl font-black">Portfolio</h2>
           </div>
           <WorksCarousel />
         </div>
       </section>
 
       {/* VENUES */}
-      <section id="venues" className="py-24 md:py-32">
+      <section id="venues" className="py-24 md:py-32 bg-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-white/40 font-semibold text-sm tracking-widest uppercase mb-4">Venues</p>
@@ -193,7 +193,7 @@ export default function Home() {
               {
                 name: "Bodega Giol",
                 desc: "Salón cerrado y espacio Jagger. Versátil, con historia vitivinícola.",
-                image: null as string | null,
+                image: "/images/bodega-giol.jpg",
               },
               {
                 name: "Nave Cultural",
@@ -213,7 +213,7 @@ export default function Home() {
               {
                 name: "Bodega Dante Robino",
                 desc: "Ideal para cenas privadas y eventos nocturnos con producción escénica.",
-                image: null as string | null,
+                image: "/images/bodega-dante.jpg",
               },
               {
                 name: "Puesto del Indio",
@@ -254,7 +254,7 @@ export default function Home() {
       </section>
 
       {/* EVENTOS ACTIVOS */}
-      <section id="eventos" className="relative py-24 md:py-32 overflow-hidden">
+      <section id="eventos" className="relative py-24 md:py-32 overflow-hidden bg-black">
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-white/40 font-semibold text-sm tracking-widest uppercase mb-4">Eventos</p>
@@ -265,7 +265,7 @@ export default function Home() {
       </section>
 
       {/* CONTACTO */}
-      <section id="contacto" className="py-24 md:py-32">
+      <section id="contacto" className="py-24 md:py-32 bg-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20">
             <div>
@@ -329,7 +329,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/5 py-12">
+      <footer className="border-t border-white/5 py-12 bg-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
@@ -372,7 +372,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
     </div>
   );
 }

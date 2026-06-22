@@ -6,6 +6,7 @@ interface Work {
   name: string;
   image: string | null;
   large?: boolean;
+  position?: string;
 }
 
 interface WorksCategoryProps {
@@ -25,7 +26,7 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
           <div
             key={work.name}
             className={`group relative rounded-2xl overflow-hidden cursor-pointer ${
-              work.large ? "col-span-2 aspect-[2/1]" : "aspect-[4/3]"
+              work.large ? "col-span-2 aspect-[2/1]" : "aspect-square"
             }`}
           >
             {work.image ? (
@@ -34,7 +35,9 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
                   src={work.image}
                   alt={work.name}
                   fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={work.position ? { objectPosition: work.position } : undefined}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent group-hover:from-black/80 transition-colors" />
               </>
@@ -60,12 +63,12 @@ const categories: WorksCategoryProps[] = [
   {
     title: "Experiencias propias",
     works: [
-      { name: "Vino a la Nave", image: "/images/nave-crowd.jpg", large: true },
-      { name: "Isidris Sunset", image: null },
-      { name: "Vino al Roble", image: "/images/roble-dj.jpg" },
-      { name: "La Sala", image: null },
-      { name: "Club Edition", image: null },
-      { name: "Audioholics - Mariano Mellino", image: null, large: true },
+      { name: "Vino al Roble", image: "/images/roble-dj.jpg", large: true },
+      { name: "Isidris Sunset", image: "/images/isidris-works.jpg" },
+      { name: "La Sala", image: "/images/la-sala.jpg" },
+      { name: "Vino a la Nave", image: "/images/nave-crowd.jpg" },
+      { name: "Audioholics - Mariano Mellino", image: "/images/audioholics.jpg" },
+      { name: "Club Edition", image: "/images/club-edition-works.jpg", large: true },
       { name: "Finquita 1920", image: "/images/finquita-servicio.jpg" },
     ],
   },
@@ -73,16 +76,16 @@ const categories: WorksCategoryProps[] = [
     title: "Activaciones de marca",
     works: [
       { name: "Royal Enfield", image: "/images/royal-enfield-real.jpg" },
-      { name: "Tecno", image: null },
-      { name: "Tucci", image: null },
+      { name: "Tecno", image: "/images/tecno.webp" },
+      { name: "Tucci", image: "/images/tucci.jpg" },
     ],
   },
   {
     title: "Eventos masivos",
     works: [
-      { name: "Peatonal del Vino 2025", image: null },
-      { name: "Aniversario Arístides 2025", image: null },
-      { name: "Aniversario Arístides 2026", image: null },
+      { name: "Peatonal del Vino 2025", image: "/images/peatonal-vino.jpg" },
+      { name: "Aniversario Arístides 2025", image: "/images/aristides-2025.jpg" },
+      { name: "Aniversario Arístides 2026", image: "/images/aristides-2026.jpg" },
     ],
   },
 ];

@@ -9,16 +9,16 @@ const events = [
     name: "Mi Amigo Invencible",
     image: "/images/amigo-invencible.png",
     date: "Vie 4 Jul",
-    url: "#",
-    contain: true,
+    url: "https://venti.com.ar/evento/vino-a-la-nave-mi-amigo-invensible-4-de-julio-mendoza",
+    position: "center 30%",
   },
   {
     id: 2,
     name: "Club Edition",
     image: "/images/club-edition.png",
     date: "Vie 4 Jul",
-    url: "#",
-    contain: true,
+    url: "https://venti.com.ar/evento/kamilo-sanclemente-club-edition",
+    position: "center 30%",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const events = [
     image: "/images/isidris-fuegos.png",
     date: "Sáb 18 Jul",
     url: "https://isidriseventos.com/events/fuegos-de-invierno-18-07",
-    contain: false,
+    position: null as string | null,
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const events = [
     image: "/images/isla-de-caras.png",
     date: "Dom 16 Ago",
     url: "https://bullaccess.com.ar/events/isladecaras",
-    contain: false,
+    position: null as string | null,
   },
 ];
 
@@ -80,6 +80,7 @@ export default function EventsCarousel() {
                 alt={event.name}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
+                style={event.position ? { objectPosition: event.position } : undefined}
               />
             </div>
             <div className="p-4">
