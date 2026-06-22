@@ -2,128 +2,96 @@
 
 import { useState } from "react";
 
-export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+const PHONE = "5492615346116";
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+export default function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "sending">("idle");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
 
     const form = e.currentTarget;
-    const data = new FormData(form);
+    const nombre = (form.elements.namedItem("nombre") as HTMLInputElement).value;
+    const mensaje = (form.elements.namedItem("mensaje") as HTMLTextAreaElement).value;
 
-    await fetch("https://formsubmit.co/ajax/agostina@neroproducciones.com", {
-      method: "POST",
-      body: data,
-      headers: { Accept: "application/json" },
-    });
+    const text = `*Nueva consulta desde neroproducciones.com*
 
-    setStatus("sent");
-    form.reset();
+*Nombre:* ${nombre}
+
+${mensaje}`;
+
+    const url = `https://api.whatsapp.com/send?phone=${PHONE}&text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+    setStatus("idle");
   };
 
-  if (status === "sent") {
-    return (
-      <div className="bg-surface rounded-2xl p-8 border border-white/5 flex flex-col items-center justify-center min-h-[400px] text-center">
-        <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6">
-          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+  return (
+    <div className="bg-gradient-to-br from-white/[0.06] to-white/[0.02] rounded-3xl p-8 md:p-10 border border-white/10 backdrop-blur-sm">
+      <div className="flex items-center gap-3 mb-8">
+        <div className="w-10 h-10 rounded-full bg-[#25D366]/20 flex items-center justify-center">
+          <svg className="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.331 0-4.512-.654-6.369-1.787l-.456-.279-3.156 1.058 1.058-3.156-.279-.456A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
           </svg>
         </div>
-        <h3 className="text-2xl font-bold mb-3">Mensaje enviado</h3>
-        <p className="text-white/50 mb-8">Te respondemos en menos de 24 horas.</p>
-        <button
-          onClick={() => setStatus("idle")}
-          className="text-white/40 hover:text-white text-sm transition-colors underline underline-offset-4"
-        >
-          Enviar otra consulta
-        </button>
-      </div>
-    );
-  }
-
-  return (
-    <div className="bg-surface rounded-2xl p-8 border border-white/5">
-      <form onSubmit={handleSubmit} className="space-y-5">
-        <input type="hidden" name="_subject" value="Nueva consulta desde neroproducciones.com" />
-        <input type="hidden" name="_template" value="box" />
         <div>
-          <label htmlFor="nombre" className="block text-sm font-medium text-white/50 mb-2">
-            Nombre
-          </label>
+          <p className="font-bold text-lg">Escribinos</p>
+          <p className="text-white/40 text-sm">Te respondemos al instante</p>
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="relative">
           <input
             type="text"
             id="nombre"
             name="nombre"
             required
-            className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-white/30 transition-colors"
+            className="peer w-full bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-transparent focus:outline-none focus:border-[#25D366]/50 focus:bg-white/[0.06] transition-all"
             placeholder="Tu nombre"
           />
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-white/50 mb-2">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-white/30 transition-colors"
-            placeholder="tu@email.com"
-          />
-        </div>
-        <div>
-          <label htmlFor="telefono" className="block text-sm font-medium text-white/50 mb-2">
-            Teléfono
-          </label>
-          <input
-            type="tel"
-            id="telefono"
-            name="telefono"
-            className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-white/30 transition-colors"
-            placeholder="261 123 4567"
-          />
-        </div>
-        <div>
-          <label htmlFor="tipo" className="block text-sm font-medium text-white/50 mb-2">
-            Tipo de proyecto
-          </label>
-          <select
-            id="tipo"
-            name="tipo_de_proyecto"
-            required
-            className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/30 transition-colors"
+          <label
+            htmlFor="nombre"
+            className="absolute left-5 top-4 text-white/30 text-base transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-[11px] peer-focus:text-[#25D366] peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[11px] peer-[:not(:placeholder-shown)]:text-white/40"
           >
-            <option value="">Seleccioná una opción</option>
-            <option value="corporativo">Evento corporativo</option>
-            <option value="boda">Boda destino</option>
-            <option value="activacion">Activación de marca</option>
-            <option value="cultural">Evento cultural</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="mensaje" className="block text-sm font-medium text-white/50 mb-2">
-            Mensaje
+            Tu nombre
           </label>
+        </div>
+
+        <div className="relative">
           <textarea
             id="mensaje"
             name="mensaje"
             rows={4}
             required
-            className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/20 focus:outline-none focus:border-white/30 transition-colors resize-none"
-            placeholder="Contanos sobre tu evento..."
+            className="peer w-full bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-transparent focus:outline-none focus:border-[#25D366]/50 focus:bg-white/[0.06] transition-all resize-none"
+            placeholder="Tu consulta"
           />
+          <label
+            htmlFor="mensaje"
+            className="absolute left-5 top-4 text-white/30 text-base transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-[11px] peer-focus:text-[#25D366] peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[11px] peer-[:not(:placeholder-shown)]:text-white/40"
+          >
+            Contanos sobre tu evento...
+          </label>
         </div>
+
         <button
           type="submit"
           disabled={status === "sending"}
-          className="w-full bg-white hover:bg-white/90 text-black font-semibold py-4 rounded-full transition-all hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
+          className="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold py-4 rounded-2xl transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(37,211,102,0.3)] disabled:opacity-50 disabled:hover:scale-100 flex items-center justify-center gap-3 text-lg"
         >
-          {status === "sending" ? "Enviando..." : "Enviar consulta"}
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.331 0-4.512-.654-6.369-1.787l-.456-.279-3.156 1.058 1.058-3.156-.279-.456A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+          </svg>
+          Enviar por WhatsApp
         </button>
       </form>
+
+      <p className="text-center text-white/20 text-xs mt-6">
+        Se abrirá WhatsApp con tu consulta lista para enviar
+      </p>
     </div>
   );
 }
