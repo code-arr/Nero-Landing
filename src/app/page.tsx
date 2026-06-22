@@ -168,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* TRABAJOS DESTACADOS */}
-      <section id="trabajos" className="relative py-24 md:py-32 overflow-hidden bg-black">
+      <section id="portfolio" className="relative py-24 md:py-32 overflow-hidden bg-black">
         <div className="relative z-10 max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black">Portfolio</h2>
