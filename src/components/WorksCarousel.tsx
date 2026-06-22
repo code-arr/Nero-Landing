@@ -7,6 +7,7 @@ interface Work {
   image: string | null;
   large?: boolean;
   position?: string;
+  scale?: string;
 }
 
 interface WorksCategoryProps {
@@ -37,7 +38,10 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
                   fill
                   sizes="(max-width: 768px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  style={work.position ? { objectPosition: work.position } : undefined}
+                  style={{
+                    ...(work.position ? { objectPosition: work.position } : {}),
+                    ...(work.scale ? { transform: `scale(${work.scale})` } : {}),
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent group-hover:from-black/80 transition-colors" />
               </>
