@@ -140,7 +140,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="row-span-1 relative rounded-2xl overflow-hidden">
-                <Image src="/images/finquita-servicio.jpg" alt="Trayectoria" fill sizes="(max-width: 768px) 33vw, 18vw" className="object-cover" />
+                <Image src="/images/copa-vino.jpg" alt="Trayectoria" fill sizes="(max-width: 768px) 33vw, 18vw" className="object-cover" />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <p className="text-2xl md:text-3xl font-black">+10</p>
