@@ -150,10 +150,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Sponsors */}
+          {/* Sponsors Banner */}
           <div className="mt-20 border-t border-white/10 pt-12">
-            <p className="text-white/30 font-semibold text-xs tracking-widest uppercase text-center mb-12">Confían en nosotros</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <p className="text-white/30 font-semibold text-xs tracking-widest uppercase text-center mb-8">Confían en nosotros</p>
+            <div className="flex items-center justify-center h-20 md:h-24 overflow-x-auto scrollbar-hide gap-8 md:gap-12 px-4">
               {[
                 { name: 'Martin Co', logo: '/images/sponsors/martin-co.svg' },
                 { name: 'Sancor Seguros', logo: '/images/sponsors/sancor-seguros.svg' },
@@ -170,15 +170,15 @@ export default function Home() {
               ].map((sponsor) => (
                 <div
                   key={sponsor.name}
-                  className="flex items-center justify-center h-16 md:h-20"
+                  className="flex items-center justify-center h-full min-w-max flex-shrink-0 px-4"
                 >
-                  <div className="relative w-full h-full p-3">
+                  <div className="relative w-20 h-20 md:w-24 md:h-24">
                     <Image
                       src={sponsor.logo}
                       alt={sponsor.name}
                       fill
                       className="object-contain object-center brightness-0 invert"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      sizes="100px"
                     />
                   </div>
                 </div>
