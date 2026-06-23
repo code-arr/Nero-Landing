@@ -87,7 +87,7 @@ const categories: WorksCategoryProps[] = [
     works: [
       { name: "Peatonal del Vino", desc: "Una celebración urbana del vino en el corazón de Mendoza.", image: "/images/peatonal-vino-2025.jpg" },
       { name: "Aniversario Arístides 2025", desc: "Producción de uno de los eventos públicos más convocantes de la ciudad.", image: "/images/aristides-2025.jpg" },
-      { name: "Aniversario Arístides 2026", desc: "Producción de uno de los eventos públicos más convocantes de la ciudad.", image: "/images/aristides-2026.jpg" },
+      { name: "Aniversario Arístides 2026", desc: "Producción de uno de los eventos públicos más convocantes de la ciudad.", image: "/images/aristides-2026-new.jpg" },
     ],
   },
 ];
