@@ -182,7 +182,7 @@ export default function Home() {
                       src={sponsor.logo}
                       alt={sponsor.name}
                       fill
-                      className={`object-contain object-center ${sponsor.name === 'Pepsi Music' ? '' : 'brightness-0 invert'}`}
+                      className={`object-contain object-center ${sponsor.name === 'Pepsi Music' ? '' : 'brightness-0 invert'} ${sponsor.name === 'Flux' ? 'brightness-200' : ''}`}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     />
                   </div>
