@@ -177,7 +177,7 @@ export default function Home() {
                       src={sponsor.logo}
                       alt={sponsor.name}
                       fill
-                      className="object-contain object-center"
+                      className="object-contain object-center brightness-0 invert"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     />
                   </div>
