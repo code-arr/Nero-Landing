@@ -4,7 +4,6 @@ import FloatingButtons from "@/components/FloatingButtons";
 import EventsCarousel from "@/components/EventsCarousel";
 import ContactForm from "@/components/ContactForm";
 import WorksCarousel from "@/components/WorksCarousel";
-import SponsorsCarousel from "@/components/SponsorsCarousel";
 
 export default function Home() {
   return (
@@ -151,11 +150,31 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Sponsors placeholder */}
+          {/* Sponsors */}
           <div className="mt-20 border-t border-white/10 pt-12">
-            <p className="text-white/30 font-semibold text-xs tracking-widest uppercase text-center mb-8">Confían en nosotros</p>
-            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap opacity-50">
-              <p className="text-white/30 text-sm italic">Logos de sponsors próximamente</p>
+            <p className="text-white/30 font-semibold text-xs tracking-widest uppercase text-center mb-12">Confían en nosotros</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+              {[
+                { name: 'Martin Co', logo: '/images/sponsors/martin-co.svg' },
+                { name: 'Sancor Seguros', logo: '/images/sponsors/sancor-seguros.svg' },
+                { name: 'Royal Enfield', logo: '/images/sponsors/royal-enfield.svg' },
+                { name: 'Tecno', logo: '/images/sponsors/tecno.svg' },
+              ].map((sponsor) => (
+                <div
+                  key={sponsor.name}
+                  className="flex items-center justify-center h-16 md:h-20 bg-white/[0.02] rounded-lg border border-white/5 hover:border-white/10 transition-all hover:bg-white/[0.05]"
+                >
+                  <div className="relative w-full h-full p-3">
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      fill
+                      className="object-contain object-center"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -253,9 +272,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* SPONSORS */}
-      <SponsorsCarousel />
 
       {/* EVENTOS ACTIVOS */}
       <section id="eventos" className="relative py-24 md:py-32 overflow-hidden bg-black">
