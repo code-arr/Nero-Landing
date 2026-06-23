@@ -162,7 +162,7 @@ export default function Home() {
               ].map((sponsor) => (
                 <div
                   key={sponsor.name}
-                  className="flex items-center justify-center h-16 md:h-20 bg-white/[0.02] rounded-lg border border-white/5 hover:border-white/10 transition-all hover:bg-white/[0.05]"
+                  className="flex items-center justify-center h-16 md:h-20"
                 >
                   <div className="relative w-full h-full p-3">
                     <Image
