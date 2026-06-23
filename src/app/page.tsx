@@ -153,7 +153,7 @@ export default function Home() {
           {/* Sponsors Banner */}
           <div className="mt-20 border-t border-white/10 pt-12">
             <p className="text-white/30 font-semibold text-xs tracking-widest uppercase text-center mb-12">Confían en nosotros</p>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 md:gap-12">
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 md:gap-12 justify-items-center">
               {[
                 { name: 'Martin Co', logo: '/images/sponsors/martin-co.svg' },
                 { name: 'Sancor Seguros', logo: '/images/sponsors/sancor-seguros.svg' },
