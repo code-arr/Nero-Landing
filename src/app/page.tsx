@@ -4,6 +4,7 @@ import FloatingButtons from "@/components/FloatingButtons";
 import EventsCarousel from "@/components/EventsCarousel";
 import ContactForm from "@/components/ContactForm";
 import WorksCarousel from "@/components/WorksCarousel";
+import SponsorsCarousel from "@/components/SponsorsCarousel";
 
 export default function Home() {
   return (
@@ -252,6 +253,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SPONSORS */}
+      <SponsorsCarousel />
 
       {/* EVENTOS ACTIVOS */}
       <section id="eventos" className="relative py-24 md:py-32 overflow-hidden bg-black">
