@@ -175,7 +175,7 @@ export default function Home() {
               ].map((sponsor) => (
                 <div
                   key={sponsor.name}
-                  className="flex items-center justify-center h-16 md:h-20"
+                  className="flex items-center justify-center h-16 md:h-20 w-20 md:w-24"
                 >
                   <div className="relative w-full h-full">
                     <Image
