@@ -152,62 +152,37 @@ export default function Home() {
 
           {/* Sponsors Banner */}
           <div className="mt-20 border-t border-white/10 pt-12">
-            <p className="text-white/30 font-semibold text-xs tracking-widest uppercase text-center mb-8">Confían en nosotros</p>
-            <div className="overflow-hidden">
-              <div className="flex flex-col gap-8">
-                {/* Row 1 */}
-                <div className="flex gap-12 md:gap-16 items-center whitespace-nowrap overflow-x-auto scrollbar-hide">
-                  {[
-                    { name: 'Martin Co', logo: '/images/sponsors/martin-co.svg' },
-                    { name: 'Sancor Seguros', logo: '/images/sponsors/sancor-seguros.svg' },
-                    { name: 'Royal Enfield', logo: '/images/sponsors/royal-enfield.svg' },
-                    { name: 'Tecno', logo: '/images/sponsors/tecno.svg' },
-                    { name: 'Corona', logo: '/images/sponsors/corona.png' },
-                    { name: 'Andesmar', logo: '/images/sponsors/andesmar.png' },
-                  ].map((sponsor) => (
-                    <div
-                      key={sponsor.name}
-                      className="flex items-center justify-center h-16 md:h-20 min-w-max"
-                    >
-                      <div className="relative w-20 h-20 md:w-24 md:h-24">
-                        <Image
-                          src={sponsor.logo}
-                          alt={sponsor.name}
-                          fill
-                          className="object-contain object-center brightness-0 invert"
-                          sizes="100px"
-                        />
-                      </div>
-                    </div>
-                  ))}
+            <p className="text-white/30 font-semibold text-xs tracking-widest uppercase text-center mb-12">Confían en nosotros</p>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 md:gap-12">
+              {[
+                { name: 'Martin Co', logo: '/images/sponsors/martin-co.svg' },
+                { name: 'Sancor Seguros', logo: '/images/sponsors/sancor-seguros.svg' },
+                { name: 'Royal Enfield', logo: '/images/sponsors/royal-enfield.svg' },
+                { name: 'Tecno', logo: '/images/sponsors/tecno.svg' },
+                { name: 'Corona', logo: '/images/sponsors/corona.png' },
+                { name: 'Andesmar', logo: '/images/sponsors/andesmar.png' },
+                { name: 'Mendoza Shopping', logo: '/images/sponsors/mendoza-shopping.png' },
+                { name: 'Municipalidad Mendoza', logo: '/images/sponsors/municipalidad-mendoza.png' },
+                { name: 'Aperol', logo: '/images/sponsors/aperol.webp' },
+                { name: 'Fernet', logo: '/images/sponsors/fernet.webp' },
+                { name: 'Andes Origen', logo: '/images/sponsors/andes-origen.webp' },
+                { name: 'Pepsi Music', logo: '/images/sponsors/pepsi-music.webp' },
+              ].map((sponsor) => (
+                <div
+                  key={sponsor.name}
+                  className="flex items-center justify-center h-16 md:h-20"
+                >
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      fill
+                      className="object-contain object-center brightness-0 invert"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    />
+                  </div>
                 </div>
-                {/* Row 2 */}
-                <div className="flex gap-12 md:gap-16 items-center whitespace-nowrap overflow-x-auto scrollbar-hide">
-                  {[
-                    { name: 'Mendoza Shopping', logo: '/images/sponsors/mendoza-shopping.png' },
-                    { name: 'Municipalidad Mendoza', logo: '/images/sponsors/municipalidad-mendoza.png' },
-                    { name: 'Aperol', logo: '/images/sponsors/aperol.webp' },
-                    { name: 'Fernet', logo: '/images/sponsors/fernet.webp' },
-                    { name: 'Andes Origen', logo: '/images/sponsors/andes-origen.webp' },
-                    { name: 'Pepsi Music', logo: '/images/sponsors/pepsi-music.webp' },
-                  ].map((sponsor) => (
-                    <div
-                      key={sponsor.name}
-                      className="flex items-center justify-center h-16 md:h-20 min-w-max"
-                    >
-                      <div className="relative w-20 h-20 md:w-24 md:h-24">
-                        <Image
-                          src={sponsor.logo}
-                          alt={sponsor.name}
-                          fill
-                          className="object-contain object-center brightness-0 invert"
-                          sizes="100px"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
