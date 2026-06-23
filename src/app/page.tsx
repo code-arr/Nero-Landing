@@ -124,7 +124,7 @@ export default function Home() {
 
               {/* Bottom row */}
               <div className="row-span-1 relative rounded-2xl overflow-hidden">
-                <Image src="/images/royal-enfield.jpg" alt="Marcas" fill sizes="(max-width: 768px) 33vw, 18vw" className="object-cover object-center" />
+                <Image src="/images/marcas-50.jpg" alt="Marcas" fill sizes="(max-width: 768px) 33vw, 18vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <p className="text-2xl md:text-3xl font-black">+50</p>
