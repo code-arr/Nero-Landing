@@ -159,6 +159,14 @@ export default function Home() {
                 { name: 'Sancor Seguros', logo: '/images/sponsors/sancor-seguros.svg' },
                 { name: 'Royal Enfield', logo: '/images/sponsors/royal-enfield.svg' },
                 { name: 'Tecno', logo: '/images/sponsors/tecno.svg' },
+                { name: 'Corona', logo: '/images/sponsors/corona.png' },
+                { name: 'Andesmar', logo: '/images/sponsors/andesmar.png' },
+                { name: 'Mendoza Shopping', logo: '/images/sponsors/mendoza-shopping.png' },
+                { name: 'Municipalidad Mendoza', logo: '/images/sponsors/municipalidad-mendoza.png' },
+                { name: 'Aperol', logo: '/images/sponsors/aperol.webp' },
+                { name: 'Fernet', logo: '/images/sponsors/fernet.webp' },
+                { name: 'Andes Origen', logo: '/images/sponsors/andes-origen.webp' },
+                { name: 'Pepsi Music', logo: '/images/sponsors/pepsi-music.webp' },
               ].map((sponsor) => (
                 <div
                   key={sponsor.name}
