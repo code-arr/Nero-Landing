@@ -167,6 +167,11 @@ export default function Home() {
                 { name: 'Fernet', logo: '/images/sponsors/fernet.webp' },
                 { name: 'Andes Origen', logo: '/images/sponsors/andes-origen.webp' },
                 { name: 'Pepsi Music', logo: '/images/sponsors/pepsi-music.webp' },
+                { name: 'Flux', logo: '/images/sponsors/flux.png' },
+                { name: 'Label Solutions', logo: '/images/sponsors/label-solutions.png' },
+                { name: 'Sernova', logo: '/images/sponsors/sernova.png' },
+                { name: 'Yacopini', logo: '/images/sponsors/yacopini.png' },
+                { name: 'Eco de los Andes', logo: '/images/sponsors/eco-de-los-andes.png' },
               ].map((sponsor) => (
                 <div
                   key={sponsor.name}
