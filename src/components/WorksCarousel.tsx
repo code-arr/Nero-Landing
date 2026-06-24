@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import type { ReactNode } from "react";
 
 interface Work {
   name: string;
@@ -8,12 +9,12 @@ interface Work {
   image: string | null;
   large?: boolean;
   tall?: boolean;
-  largeMobileOnly?: boolean;
   position?: string;
+  order?: string;
 }
 
 interface WorksCategoryProps {
-  title: string;
+  title: ReactNode;
   works: Work[];
 }
 
@@ -29,8 +30,8 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
           <div
             key={work.name}
             className={`group relative rounded-2xl overflow-hidden cursor-pointer ${
-              work.large ? "col-span-2 aspect-[2/1]" : work.largeMobileOnly ? "col-span-2 aspect-[2/1] md:col-span-1 md:aspect-square" : work.tall ? "md:row-span-2 aspect-square" : "aspect-square"
-            }`}
+              work.large ? "col-span-2 aspect-[2/1]" : work.tall ? "aspect-square md:aspect-auto md:row-span-2" : "aspect-square"
+            } ${work.order ?? ""}`}
           >
             {work.image ? (
               <>
@@ -65,7 +66,13 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
 
 const categories: WorksCategoryProps[] = [
   {
-    title: "Experiencias propias",
+    title: (
+      <>
+        Eventos creados y ejecutados por{" "}
+        <span className="font-black tracking-tight text-white">NERO</span>
+        <span className="font-light tracking-wider text-white"> PRODUCCIONES</span>
+      </>
+    ),
     works: [
       { name: "Isidris Sunset", desc: "Experiencias de montaña entre vinos, fuegos y atardeceres.", image: "/images/isidris-works-2.jpg", large: true },
       { name: "Vino a la Nave", desc: "Vino, gastronomía y música en un entorno cultural único.", image: "/images/nave-crowd.jpg" },
@@ -79,11 +86,11 @@ const categories: WorksCategoryProps[] = [
   {
     title: "Activaciones de marca",
     works: [
-      { name: "Royal Enfield", desc: "Experiencias de marca que conectan producto y comunidad.", image: "/images/royal-enfield-real.jpg", largeMobileOnly: true },
-      { name: "Tecno", desc: "Lanzamientos y activaciones con foco en innovación y tecnología.", image: "/images/tecno.webp", large: true },
-      { name: "Tucci", desc: "Producción integral para inauguraciones y aperturas comerciales.", image: "/images/tucci.jpg" },
-      { name: "Zurich", desc: "Activaciones de seguros con experiencias y comunidad.", image: "/images/zurich.jpg" },
-      { name: "Stella Artois", desc: "Experiencias premium de cerveza artesanal y gastronomía.", image: "/images/stella-artois.jpg", position: "center" },
+      { name: "Royal Enfield", desc: "Experiencias de marca que conectan producto y comunidad.", image: "/images/royal-enfield-real.jpg", order: "order-1 md:order-none" },
+      { name: "Tecno", desc: "Lanzamientos y activaciones con foco en innovación y tecnología.", image: "/images/tecno.webp", large: true, order: "order-3 md:order-none" },
+      { name: "Tucci", desc: "Producción integral para inauguraciones y aperturas comerciales.", image: "/images/tucci.jpg", order: "order-4 md:order-none" },
+      { name: "Zurich", desc: "Activaciones de seguros con experiencias y comunidad.", image: "/images/zurich.jpg", order: "order-5 md:order-none" },
+      { name: "Stella Artois", desc: "Experiencias premium de cerveza artesanal y gastronomía.", image: "/images/stella-artois.jpg", position: "center", order: "order-2 md:order-none" },
     ],
   },
   {
@@ -99,8 +106,8 @@ const categories: WorksCategoryProps[] = [
 export default function WorksCarousel() {
   return (
     <div>
-      {categories.map((cat) => (
-        <WorksCategory key={cat.title} title={cat.title} works={cat.works} />
+      {categories.map((cat, i) => (
+        <WorksCategory key={i} title={cat.title} works={cat.works} />
       ))}
     </div>
   );

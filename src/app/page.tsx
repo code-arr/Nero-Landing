@@ -135,7 +135,7 @@ export default function Home() {
                 <Image src="/images/finquita-servicio.jpg" alt="Bodegas" fill sizes="(max-width: 768px) 33vw, 18vw" className="object-cover" />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <p className="text-2xl md:text-3xl font-black">+20</p>
+                  <p className="text-2xl md:text-3xl font-black">+100</p>
                   <p className="text-white/70 text-[10px] font-semibold uppercase tracking-wider leading-tight">Bodegas por edición en ciclos enogastronómicos</p>
                 </div>
               </div>
@@ -155,7 +155,7 @@ export default function Home() {
             <p className="text-white/30 font-semibold text-xs tracking-widest uppercase text-center mb-12">Confían en nosotros</p>
             <div className="grid grid-cols-3 md:grid-cols-6 gap-8 md:gap-12 justify-items-center">
               {[
-                { name: 'Martin Co', logo: '/images/sponsors/martin-co.svg' },
+                { name: 'Stella Artois', logo: '/images/sponsors/stella-artois.svg' },
                 { name: 'Sancor Seguros', logo: '/images/sponsors/sancor-seguros.svg' },
                 { name: 'Royal Enfield', logo: '/images/sponsors/royal-enfield.svg' },
                 { name: 'Tecno', logo: '/images/sponsors/tecno.svg' },
@@ -172,6 +172,7 @@ export default function Home() {
                 { name: 'Sernova', logo: '/images/sponsors/sernova.png' },
                 { name: 'Yacopini', logo: '/images/sponsors/yacopini.png' },
                 { name: 'Eco de los Andes', logo: '/images/sponsors/eco-de-los-andes.png' },
+                { name: 'Martin Co', logo: '/images/sponsors/martin-co.svg' },
               ].map((sponsor) => (
                 <div
                   key={sponsor.name}
@@ -241,7 +242,7 @@ export default function Home() {
               {
                 name: "La Finquita 1920",
                 desc: "Bodega boutique. Entorno natural y relajado, perfecto para team buildings.",
-                image: "/images/finquita-copa.jpg",
+                image: "/images/finquita-new.jpg",
               },
               {
                 name: "Bodega Dante Robino",
@@ -251,7 +252,7 @@ export default function Home() {
               {
                 name: "Puesto del Indio",
                 desc: "Experiencia de montaña rodeada de paisajes únicos en Las Heras.",
-                image: "/images/puesto-del-indio.png",
+                image: "/images/puesto-del-indio-new.png",
               },
             ].map((venue) => (
               <div
