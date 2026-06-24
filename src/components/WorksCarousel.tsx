@@ -7,6 +7,7 @@ interface Work {
   desc: string;
   image: string | null;
   large?: boolean;
+  tall?: boolean;
   position?: string;
 }
 
@@ -27,7 +28,7 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
           <div
             key={work.name}
             className={`group relative rounded-2xl overflow-hidden cursor-pointer ${
-              work.large ? "col-span-2 aspect-[2/1]" : "aspect-square"
+              work.large ? "col-span-2 aspect-[2/1]" : work.tall ? "md:row-span-2 aspect-square" : "aspect-square"
             }`}
           >
             {work.image ? (
@@ -65,12 +66,12 @@ const categories: WorksCategoryProps[] = [
   {
     title: "Experiencias propias",
     works: [
-      { name: "Vino al Roble", desc: "Encuentros en torno al vino, la gastronomía y la cultura.", image: "/images/roble-dj.jpg", large: true },
-      { name: "Isidris Sunset", desc: "Experiencias de montaña entre vinos, fuegos y atardeceres.", image: "/images/isidris-works-2.jpg" },
-      { name: "La Sala", desc: "Un espacio para descubrir artistas y vivir la música de cerca.", image: "/images/la-sala-green.jpg" },
+      { name: "Isidris Sunset", desc: "Experiencias de montaña entre vinos, fuegos y atardeceres.", image: "/images/isidris-works-2.jpg", large: true },
       { name: "Vino a la Nave", desc: "Vino, gastronomía y música en un entorno cultural único.", image: "/images/nave-crowd.jpg" },
-      { name: "Audioholics", desc: "Experiencias inmersivas para amantes de la música electrónica.", image: "/images/audioholics.jpg" },
-      { name: "Club Edition", desc: "Eventos de música electrónica en espacios no convencionales.", image: "/images/club-edition-works.jpg", large: true },
+      { name: "La Sala", desc: "Un espacio para descubrir artistas y vivir la música de cerca.", image: "/images/la-sala-green.jpg" },
+      { name: "Vino al Roble", desc: "Encuentros en torno al vino, la gastronomía y la cultura.", image: "/images/vino-al-roble-new.png" },
+      { name: "Club Edition", desc: "Eventos de música electrónica en espacios no convencionales.", image: "/images/club-edition-works.jpg", tall: true },
+      { name: "Audioholics", desc: "Experiencias inmersivas para amantes de la música electrónica.", image: "/images/audioholics-new.jpg" },
       { name: "Finquita 1920", desc: "Experiencias boutique con identidad mendocina.", image: "/images/finquita-servicio.jpg" },
     ],
   },
@@ -78,8 +79,10 @@ const categories: WorksCategoryProps[] = [
     title: "Activaciones de marca",
     works: [
       { name: "Royal Enfield", desc: "Experiencias de marca que conectan producto y comunidad.", image: "/images/royal-enfield-real.jpg" },
-      { name: "Tecno", desc: "Lanzamientos y activaciones con foco en innovación y tecnología.", image: "/images/tecno.webp" },
+      { name: "Tecno", desc: "Lanzamientos y activaciones con foco en innovación y tecnología.", image: "/images/tecno.webp", large: true },
       { name: "Tucci", desc: "Producción integral para inauguraciones y aperturas comerciales.", image: "/images/tucci.jpg" },
+      { name: "Zurich", desc: "Activaciones de seguros con experiencias y comunidad.", image: "/images/zurich.jpg" },
+      { name: "Stella Artois", desc: "Experiencias premium de cerveza artesanal y gastronomía.", image: "/images/stella-artois.jpg", position: "center" },
     ],
   },
   {
