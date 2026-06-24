@@ -22,7 +22,7 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
   return (
     <div className="mb-20 last:mb-0">
       <div className="flex items-center gap-4 mb-8">
-        <h3 className="text-sm font-semibold tracking-widest uppercase text-white/50 whitespace-nowrap">{title}</h3>
+        <h3 className="text-xs md:text-sm font-semibold tracking-widest uppercase text-white/50 md:whitespace-nowrap">{title}</h3>
         <div className="h-px bg-white/10 flex-1" />
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -70,7 +70,7 @@ const categories: WorksCategoryProps[] = [
       <>
         Eventos creados y ejecutados por{" "}
         <span className="font-black tracking-tight text-white">NERO</span>
-        <span className="font-light tracking-wider text-white"> PRODUCCIONES</span>
+        <span className="hidden md:inline font-light tracking-wider text-white"> PRODUCCIONES</span>
       </>
     ),
     works: [
