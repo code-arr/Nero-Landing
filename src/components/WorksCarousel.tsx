@@ -8,6 +8,7 @@ interface Work {
   image: string | null;
   large?: boolean;
   tall?: boolean;
+  largeMobileOnly?: boolean;
   position?: string;
 }
 
@@ -28,7 +29,7 @@ function WorksCategory({ title, works }: WorksCategoryProps) {
           <div
             key={work.name}
             className={`group relative rounded-2xl overflow-hidden cursor-pointer ${
-              work.large ? "col-span-2 aspect-[2/1]" : work.tall ? "md:row-span-2 aspect-square" : "aspect-square"
+              work.large ? "col-span-2 aspect-[2/1]" : work.largeMobileOnly ? "col-span-2 aspect-[2/1] md:col-span-1 md:aspect-square" : work.tall ? "md:row-span-2 aspect-square" : "aspect-square"
             }`}
           >
             {work.image ? (
@@ -78,7 +79,7 @@ const categories: WorksCategoryProps[] = [
   {
     title: "Activaciones de marca",
     works: [
-      { name: "Royal Enfield", desc: "Experiencias de marca que conectan producto y comunidad.", image: "/images/royal-enfield-real.jpg" },
+      { name: "Royal Enfield", desc: "Experiencias de marca que conectan producto y comunidad.", image: "/images/royal-enfield-real.jpg", largeMobileOnly: true },
       { name: "Tecno", desc: "Lanzamientos y activaciones con foco en innovación y tecnología.", image: "/images/tecno.webp", large: true },
       { name: "Tucci", desc: "Producción integral para inauguraciones y aperturas comerciales.", image: "/images/tucci.jpg" },
       { name: "Zurich", desc: "Activaciones de seguros con experiencias y comunidad.", image: "/images/zurich.jpg" },
