@@ -75,7 +75,7 @@ const categories: WorksCategoryProps[] = [
     ),
     works: [
       { name: "Isidris Sunset", desc: "Experiencias de montaña entre vinos, fuegos y atardeceres.", image: "/images/isidris-works-2.jpg", large: true },
-      { name: "Vino a la Nave", desc: "Vino, gastronomía y música en un entorno cultural único.", image: "/images/nave-crowd.jpg" },
+      { name: "Vino a la Nave", desc: "Vino, gastronomía y música en un entorno cultural único.", image: "/images/vino-a-la-nave-new.jpg" },
       { name: "La Sala", desc: "Un espacio para descubrir artistas y vivir la música de cerca.", image: "/images/la-sala-green.jpg" },
       { name: "Vino al Roble", desc: "Encuentros en torno al vino, la gastronomía y la cultura.", image: "/images/vino-al-roble-new.png" },
       { name: "Club Edition", desc: "Eventos de música electrónica en espacios no convencionales.", image: "/images/club-edition-works.jpg", tall: true },
@@ -87,7 +87,7 @@ const categories: WorksCategoryProps[] = [
     title: "Activaciones de marca",
     works: [
       { name: "Royal Enfield", desc: "Experiencias de marca que conectan producto y comunidad.", image: "/images/royal-enfield-real.jpg", order: "order-1 md:order-none" },
-      { name: "Tecno", desc: "Lanzamientos y activaciones con foco en innovación y tecnología.", image: "/images/tecno.webp", large: true, order: "order-3 md:order-none" },
+      { name: "Tecno", desc: "Lanzamientos y activaciones con foco en innovación y tecnología.", image: "/images/tecno-new.jpg", large: true, order: "order-3 md:order-none" },
       { name: "Tucci", desc: "Producción integral para inauguraciones y aperturas comerciales.", image: "/images/tucci.jpg", order: "order-4 md:order-none" },
       { name: "Zurich", desc: "Activaciones de seguros con experiencias y comunidad.", image: "/images/zurich.jpg", order: "order-5 md:order-none" },
       { name: "Stella Artois", desc: "Experiencias premium de cerveza artesanal y gastronomía.", image: "/images/stella-artois.jpg", position: "center", order: "order-2 md:order-none" },
