@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import { trackEvent } from "@/lib/gtag";
 
 const events = [
   {
@@ -72,6 +73,7 @@ export default function EventsCarousel() {
             href={event.url}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent("click_comprar_entradas", { evento: event.name })}
             className="snap-start shrink-0 w-[280px] md:w-[300px] group block rounded-2xl overflow-hidden bg-[#1a1a1a]"
           >
             <div className="relative aspect-[3/4] overflow-hidden">

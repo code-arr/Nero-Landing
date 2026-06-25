@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/gtag";
 
 const PHONE = "5492615346116";
 
@@ -22,6 +23,8 @@ export default function ContactForm() {
 *Tipo de evento:* ${tipo}
 
 ${mensaje}`;
+
+    trackEvent("envio_formulario", { tipo_evento: tipo });
 
     const url = `https://api.whatsapp.com/send?phone=${PHONE}&text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");

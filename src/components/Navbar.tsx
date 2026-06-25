@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { trackEvent } from "@/lib/gtag";
 
 const links = [
   { href: "#inicio", label: "Inicio" },
@@ -46,6 +47,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contacto"
+            onClick={() => trackEvent("click_quiero_mi_evento", { ubicacion: "navbar_desktop" })}
             className="bg-white hover:bg-white/90 text-black text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
           >
             Quiero mi evento
@@ -90,7 +92,10 @@ export default function Navbar() {
             ))}
             <a
               href="#contacto"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                trackEvent("click_quiero_mi_evento", { ubicacion: "navbar_mobile" });
+                setMenuOpen(false);
+              }}
               className="bg-white hover:bg-white/90 text-black text-center font-semibold px-5 py-3 rounded-full mt-4 transition-colors"
             >
               Quiero mi evento

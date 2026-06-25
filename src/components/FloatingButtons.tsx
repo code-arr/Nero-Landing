@@ -1,5 +1,7 @@
 "use client";
 
+import { trackEvent } from "@/lib/gtag";
+
 export default function FloatingButtons() {
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
@@ -7,6 +9,7 @@ export default function FloatingButtons() {
         href="https://instagram.com/neroproducciones"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackEvent("click_instagram", { ubicacion: "boton_flotante" })}
         className="w-12 h-12 bg-white/10 hover:bg-white/20 border border-white/10 rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-lg"
         aria-label="Instagram"
       >
@@ -18,6 +21,7 @@ export default function FloatingButtons() {
         href="https://wa.me/542615346116?text=Hola%20Nero!%20Quiero%20consultar%20por%20un%20evento"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackEvent("click_whatsapp", { ubicacion: "boton_flotante" })}
         className="w-14 h-14 bg-[#25D366] hover:bg-[#20BD5A] rounded-full flex items-center justify-center transition-all hover:scale-110 shadow-lg shadow-[#25D366]/30"
         aria-label="WhatsApp"
       >
