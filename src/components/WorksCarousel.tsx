@@ -99,7 +99,7 @@ const categories: { title: ReactNode; works: Work[] }[] = [
     ),
     works: [
       { name: "Isidris Sunset", desc: "Experiencias de montaña entre vinos, fuegos y atardeceres.", image: "/images/isidris-works-2.jpg", gallery: ["/images/isidris-2.jpg", "/images/isidris-3.jpg"], large: true },
-      { name: "Vino a la Nave", desc: "Vino, gastronomía y música en un entorno cultural único.", image: "/images/vino-a-la-nave-new.jpg" },
+      { name: "Vino a la Nave", desc: "Vino, gastronomía y música en un entorno cultural único.", image: "/images/vino-a-la-nave-new.jpg", gallery: ["/images/vino-nave-2.jpg", "/images/vino-nave-3.jpg", "/images/vino-nave-4.jpg"] },
       { name: "La Sala", desc: "Un espacio para descubrir artistas y vivir la música de cerca.", image: "/images/la-sala-green.jpg", gallery: ["/images/la-sala-2.jpg", "/images/la-sala-3.jpg", "/images/la-sala-4.jpg"] },
       { name: "Vino al Roble", desc: "Encuentros en torno al vino, la gastronomía y la cultura.", image: "/images/vino-al-roble-new.png" },
       { name: "Club Edition", desc: "Eventos de música electrónica en espacios no convencionales.", image: "/images/club-edition-works.jpg", tall: true },
@@ -120,7 +120,7 @@ const categories: { title: ReactNode; works: Work[] }[] = [
   {
     title: "Eventos masivos",
     works: [
-      { name: "Peatonal del Vino", desc: "Una celebración urbana del vino en el corazón de Mendoza.", image: "/images/peatonal-vino-2025.jpg" },
+      { name: "Peatonal del Vino", desc: "Una celebración urbana del vino en el corazón de Mendoza.", image: "/images/peatonal-vino-2025.jpg", gallery: ["/images/peatonal-2.webp", "/images/peatonal-3.jpg", "/images/peatonal-4.webp"] },
       { name: "Aniversario Arístides 2025", desc: "Producción de uno de los eventos públicos más convocantes de la ciudad.", image: "/images/aristides-2025.jpg" },
       { name: "Aniversario Arístides 2026", desc: "Producción de uno de los eventos públicos más convocantes de la ciudad.", image: "/images/aristides-2026-new.jpg" },
     ],
