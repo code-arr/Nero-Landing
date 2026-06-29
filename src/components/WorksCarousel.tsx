@@ -55,13 +55,28 @@ function WorksCategory({ title, works, onOpen }: WorksCategoryProps) {
                   <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent group-hover:from-black/80 transition-colors" />
                   {/* indicador de galería (varias fotos) */}
                   {work.gallery && work.gallery.length > 0 && (
-                    <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 bg-black/55 backdrop-blur-sm rounded-full pl-1.5 pr-2 py-1">
+                    <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1.5 bg-black/55 backdrop-blur-sm rounded-full pl-2 pr-2.5 py-1">
                       <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                       <span className="text-white text-[11px] font-semibold leading-none">{work.gallery.length + 1}</span>
                     </div>
                   )}
+                  {/* hint "ampliar" al pasar el mouse (desktop) */}
+                  <div className="hidden md:flex absolute inset-0 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="flex items-center gap-2 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2.5">
+                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9m11.25-5.25h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15M3.75 20.25h4.5m-4.5 0v-4.5m0 4.5L9 15" />
+                      </svg>
+                      <span className="text-white text-sm font-semibold">{work.gallery && work.gallery.length > 0 ? "Ver galería" : "Ampliar"}</span>
+                    </div>
+                  </div>
+                  {/* hint "ampliar" siempre visible (mobile) */}
+                  <div className="md:hidden absolute bottom-2 right-2 z-10 w-7 h-7 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9m11.25-5.25h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15M3.75 20.25h4.5m-4.5 0v-4.5m0 4.5L9 15" />
+                    </svg>
+                  </div>
                 </>
               ) : (
                 <div className="absolute inset-0 bg-white/[0.03] border-2 border-dashed border-white/10 flex flex-col items-center justify-center gap-2 rounded-2xl">
