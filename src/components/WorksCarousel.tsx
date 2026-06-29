@@ -98,7 +98,7 @@ const categories: { title: ReactNode; works: Work[] }[] = [
       </>
     ),
     works: [
-      { name: "Isidris Sunset", desc: "Experiencias de montaña entre vinos, fuegos y atardeceres.", image: "/images/isidris-works-2.jpg", gallery: ["/images/isidris-2.png", "/images/isidris-3.png"], large: true },
+      { name: "Isidris Sunset", desc: "Experiencias de montaña entre vinos, fuegos y atardeceres.", image: "/images/isidris-works-2.jpg", gallery: ["/images/isidris-2.jpg", "/images/isidris-3.jpg"], large: true },
       { name: "Vino a la Nave", desc: "Vino, gastronomía y música en un entorno cultural único.", image: "/images/vino-a-la-nave-new.jpg" },
       { name: "La Sala", desc: "Un espacio para descubrir artistas y vivir la música de cerca.", image: "/images/la-sala-green.jpg", gallery: ["/images/la-sala-2.jpg", "/images/la-sala-3.jpg", "/images/la-sala-4.jpg"] },
       { name: "Vino al Roble", desc: "Encuentros en torno al vino, la gastronomía y la cultura.", image: "/images/vino-al-roble-new.png" },
@@ -144,6 +144,11 @@ export default function WorksCarousel() {
 
   useEffect(() => {
     if (!lightbox) return;
+    // precargar todas las fotos de la galería para que el cambio sea instantáneo
+    lightbox.images.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
       else if (e.key === "ArrowRight") next();
