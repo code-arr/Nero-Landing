@@ -6,27 +6,11 @@ import { trackEvent } from "@/lib/gtag";
 
 const events = [
   {
-    id: 1,
-    name: "Mi Amigo Invencible",
-    image: "/images/amigo-invencible.png",
-    date: "Vie 4 Jul",
-    url: "https://venti.com.ar/evento/vino-a-la-nave-mi-amigo-invensible-4-de-julio-mendoza",
-    position: "center 30%",
-  },
-  {
-    id: 2,
-    name: "Club Edition",
-    image: "/images/club-edition.png",
-    date: "Vie 4 Jul",
-    url: "https://venti.com.ar/evento/kamilo-sanclemente-club-edition",
-    position: "center 30%",
-  },
-  {
     id: 3,
     name: "Isidris Sunset - Fuegos de Invierno",
-    image: "/images/isidris-fuegos.png",
-    date: "Sáb 18 Jul",
-    url: "https://isidriseventos.com/events/fuegos-de-invierno-18-07",
+    image: "/images/fuegos-invierno-new.jpg",
+    date: "Sáb 25 Jul",
+    url: "https://isidriseventos.com/events/fuegos-de-invierno-25-07",
     position: null as string | null,
   },
   {
@@ -35,6 +19,14 @@ const events = [
     image: "/images/isla-de-caras.png",
     date: "Dom 16 Ago",
     url: "https://bullaccess.com.ar/events/isladecaras",
+    position: null as string | null,
+  },
+  {
+    id: 5,
+    name: "Vino a la Nave - Silvestre y la Naranja",
+    image: "/images/silvestre-naranja.jpg",
+    date: "Sáb 5 Sep",
+    url: "https://venti.com.ar/evento/vino-a-la-nave-silvestre-y-la-naranja-sabado-5-de-septiembre-mendoza",
     position: null as string | null,
   },
 ];
