@@ -1,38 +1,54 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { trackEvent } from "@/lib/gtag";
 
-const events = [
-  {
-    id: 3,
-    name: "Isidris Sunset - Fuegos de Invierno",
-    image: "/images/fuegos-invierno-new.jpg",
-    date: "Sáb 25 Jul",
-    url: "https://isidriseventos.com/events/fuegos-de-invierno-25-07",
-    position: null as string | null,
-  },
-  {
-    id: 4,
-    name: "Isla de Caras - La Sala Club",
-    image: "/images/isla-de-caras.png",
-    date: "Dom 16 Ago",
-    url: "https://bullaccess.com.ar/events/isladecaras",
-    position: null as string | null,
-  },
-  {
-    id: 5,
-    name: "Vino a la Nave - Silvestre y la Naranja",
-    image: "/images/silvestre-naranja.jpg",
-    date: "Sáb 5 Sep",
-    url: "https://venti.com.ar/evento/vino-a-la-nave-silvestre-y-la-naranja-sabado-5-de-septiembre-mendoza",
-    position: null as string | null,
-  },
-];
+interface Event {
+  id: string | number;
+  name: string;
+  image: string;
+  date: string;
+  url: string;
+  position: string | null;
+}
 
 export default function EventsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("/api/events");
+        if (!response.ok) throw new Error("Failed to fetch events");
+        const data = await response.json();
+
+        const formattedEvents = data.data?.map((event: any) => ({
+          id: event.id,
+          name: event.name,
+          image: event.featured_image_url || "/images/default-event.jpg",
+          date: new Date(event.event_date).toLocaleDateString("es-AR", {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+          }),
+          url: `https://bullaccess.com.ar/events/${event.slug}`,
+          position: null,
+        })) || [];
+
+        setEvents(formattedEvents);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+        setEvents([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
 
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
