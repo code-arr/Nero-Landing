@@ -13,6 +13,17 @@ interface Event {
   position: string | null;
 }
 
+const HARDCODED_EVENTS: Event[] = [
+  {
+    id: "silvestre-naranja",
+    name: "Vino a la Nave - Silvestre y la Naranja",
+    image: "/images/silvestre-naranja.jpg",
+    date: "Sáb 5 Sep",
+    url: "https://venti.com.ar/evento/vino-a-la-nave-silvestre-y-la-naranja-sabado-5-de-septiembre-mendoza",
+    position: null,
+  },
+];
+
 export default function EventsCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [events, setEvents] = useState<Event[]>([]);
@@ -38,10 +49,10 @@ export default function EventsCarousel() {
           position: null,
         })) || [];
 
-        setEvents(formattedEvents);
+        setEvents([...HARDCODED_EVENTS, ...formattedEvents]);
       } catch (error) {
         console.error("Error fetching events:", error);
-        setEvents([]);
+        setEvents(HARDCODED_EVENTS);
       } finally {
         setLoading(false);
       }
