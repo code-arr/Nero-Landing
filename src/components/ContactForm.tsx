@@ -75,6 +75,7 @@ ${mensaje}`;
             <option value="" disabled className="bg-[#1a1a1a] text-white/30">Tipo de evento</option>
             <option value="Activación de marca" className="bg-[#1a1a1a]">Activación de marca</option>
             <option value="Evento corporativo" className="bg-[#1a1a1a]">Evento corporativo</option>
+            <option value="Interempresas" className="bg-[#1a1a1a]">Interempresas</option>
             <option value="Experiencia enogastronómica" className="bg-[#1a1a1a]">Experiencia enogastronómica</option>
             <option value="Festival o ciclo cultural" className="bg-[#1a1a1a]">Festival o ciclo cultural</option>
             <option value="Evento social" className="bg-[#1a1a1a]">Evento social</option>
