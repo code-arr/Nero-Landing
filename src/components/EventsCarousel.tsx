@@ -36,18 +36,26 @@ export default function EventsCarousel() {
         if (!response.ok) throw new Error("Failed to fetch events");
         const data = await response.json();
 
-        const formattedEvents = data.data?.map((event: any) => ({
-          id: event.id,
-          name: event.name,
-          image: event.featured_image_url || "/images/default-event.jpg",
-          date: new Date(event.event_date).toLocaleDateString("es-AR", {
-            weekday: "short",
-            month: "short",
-            day: "numeric",
-          }),
-          url: `https://bullaccess.com.ar/events/${event.slug}`,
-          position: null,
-        })) || [];
+        const formattedEvents = data.data?.map((event: any) => {
+          const isIsidris = event.organizer_display_name?.toLowerCase().includes("isidris");
+          const baseUrl = isIsidris ? "https://isidriseventos.com" : "https://bullaccess.com.ar";
+          const eventUrl = event.slug
+            ? `${baseUrl}/events/${event.slug}`
+            : `${baseUrl}/events/${event.id}`;
+
+          return {
+            id: event.id,
+            name: event.name,
+            image: event.featured_image_url || "/images/default-event.jpg",
+            date: new Date(event.event_date).toLocaleDateString("es-AR", {
+              weekday: "short",
+              month: "short",
+              day: "numeric",
+            }),
+            url: eventUrl,
+            position: null,
+          };
+        }) || [];
 
         setEvents([...HARDCODED_EVENTS, ...formattedEvents]);
       } catch (error) {
