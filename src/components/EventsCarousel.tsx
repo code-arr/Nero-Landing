@@ -37,7 +37,10 @@ export default function EventsCarousel() {
         const data = await response.json();
 
         const formattedEvents = data.data?.map((event: any) => {
-          const isIsidris = event.organizer_display_name?.toLowerCase().includes("isidris");
+          const isIsidris =
+            event.name?.toLowerCase().includes("isidris") ||
+            event.slug?.toLowerCase().includes("isidris") ||
+            event.organizer_display_name?.toLowerCase().includes("isidris");
           const baseUrl = isIsidris ? "https://isidriseventos.com" : "https://bullaccess.com.ar";
           const eventUrl = event.slug
             ? `${baseUrl}/events/${event.slug}`
