@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { trackEvent } from "@/lib/gtag";
 
-const PHONE = "5492615346116";
+const PHONE = "5492615531780";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending">("idle");
