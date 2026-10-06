@@ -387,7 +387,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="https://wa.me/542615346116"
+                href="https://wa.me/5492615531780"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/30 hover:text-white transition-colors"

@@ -18,7 +18,7 @@ export default function FloatingButtons() {
         </svg>
       </a>
       <a
-        href="https://wa.me/542615346116?text=Hola%20Nero!%20Quiero%20consultar%20por%20un%20evento"
+        href="https://wa.me/5492615531780?text=Hola%20Nero!%20Quiero%20consultar%20por%20un%20evento"
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackEvent("click_whatsapp", { ubicacion: "boton_flotante" })}

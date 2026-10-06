@@ -92,7 +92,7 @@ const jsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/images/logo-bg.jpg`,
   image: `${siteUrl}/images/nave-crowd.jpg`,
-  telephone: "+542615346116",
+  telephone: "+5492615531780",
   email: "agostina@neroproducciones.com",
   address: {
     "@type": "PostalAddress",
