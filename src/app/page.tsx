@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import FloatingButtons from "@/components/FloatingButtons";
+import NowProducing from "@/components/NowProducing";
 import EventsCarousel from "@/components/EventsCarousel";
 import ContactForm from "@/components/ContactForm";
 import WorksCarousel from "@/components/WorksCarousel";
@@ -286,6 +287,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* AHORA PRODUCIENDO */}
+      <NowProducing />
 
       {/* EVENTOS ACTIVOS */}
       <section id="eventos" className="relative py-24 md:py-32 overflow-hidden bg-black">
