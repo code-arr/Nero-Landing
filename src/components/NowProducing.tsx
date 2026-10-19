@@ -49,13 +49,13 @@ export default function NowProducing() {
 
   return (
     <section
-      className="relative py-20 md:py-32 flex items-center justify-center bg-black overflow-hidden"
-      style={{ minHeight: "calc(100vh - 120px)" }}
+      className="relative py-8 md:py-12 flex items-center justify-center bg-black overflow-hidden"
+      style={{ minHeight: "calc(100vh - 64px)" }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
       {/* Background Image */}
-      <div className="absolute inset-0 top-20 md:top-32 bottom-20 md:bottom-32">
+      <div className="absolute inset-0 top-8 md:top-12 bottom-8 md:bottom-12">
         <Image
           src={production.image}
           alt={production.title}
