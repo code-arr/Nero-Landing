@@ -12,7 +12,7 @@ interface ProductionItem {
 const PRODUCTIONS: ProductionItem[] = [
   {
     title: "Isidris Sunset",
-    description: "Una experiencia de montaña donde la naturaleza, el vino y la música se encuentran en el atardecer. 16 bodegas, 50+ etiquetas para degustar, cocina al fuego y una tarde que se transforma en noche de pura jodita.",
+    description: "Un sunset único en la montaña mendocina. Vino en mano, música en vivo y la mejor vista de los Andes. A solo 15 minutos de la ciudad.",
     image: "/images/isidris-works-2.jpg",
   },
   // Agregá más eventos aquí
@@ -49,12 +49,13 @@ export default function NowProducing() {
 
   return (
     <section
-      className="relative h-screen flex items-center justify-center bg-black overflow-hidden"
+      className="relative py-20 md:py-32 flex items-center justify-center bg-black overflow-hidden"
+      style={{ minHeight: "calc(100vh - 120px)" }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 top-20 md:top-32 bottom-20 md:bottom-32">
         <Image
           src={production.image}
           alt={production.title}
