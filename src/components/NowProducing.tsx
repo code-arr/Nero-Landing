@@ -67,12 +67,14 @@ export default function NowProducing() {
         <div className="absolute inset-0 bg-gradient-to-b from-black to-black/50 via-transparent" />
       </div>
 
+      {/* Label */}
+      <p className="text-white/80 uppercase text-lg md:text-xl tracking-widest absolute left-0 right-0 w-full text-center" style={{ top: "30px" }}>
+        Actualmente produciendo
+      </p>
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-8 max-w-4xl w-full h-full flex flex-col items-center justify-center">
         <div className="text-center">
-          <p className="text-white/80 uppercase text-lg md:text-xl tracking-widest absolute left-0 right-0" style={{ top: "-140px" }}>
-            Actualmente produciendo
-          </p>
           <div className="mb-8 flex justify-center">
             <Image
               src="/images/isidris-logo-title.png"
