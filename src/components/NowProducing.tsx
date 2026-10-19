@@ -80,9 +80,17 @@ export default function NowProducing() {
               className="max-w-xs md:max-w-md h-auto"
             />
           </div>
-          <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
             {production.description}
           </p>
+          <a
+            href="https://isidriseventos.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white hover:bg-white/90 text-black font-bold px-10 py-4 rounded-full transition-all hover:scale-[1.05] text-lg"
+          >
+            Comprar Entradas
+          </a>
         </div>
       </div>
 
