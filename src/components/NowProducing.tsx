@@ -60,8 +60,7 @@ export default function NowProducing() {
           src={production.image}
           alt={production.title}
           fill
-          className="object-contain"
-          style={{ transform: "scale(1.4)" }}
+          className="object-cover"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
