@@ -60,7 +60,7 @@ export default function NowProducing() {
           src={production.image}
           alt={production.title}
           fill
-          className="object-cover"
+          className="object-contain md:object-cover object-center"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
