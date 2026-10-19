@@ -64,6 +64,7 @@ export default function NowProducing() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
