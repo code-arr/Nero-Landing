@@ -65,7 +65,7 @@ export default function NowProducing() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black/90" />
       </div>
 
       {/* Bottom fade overlay */}
