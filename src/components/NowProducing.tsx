@@ -50,7 +50,7 @@ export default function NowProducing() {
   return (
     <section
       className="relative py-8 md:py-12 flex items-center justify-center bg-black overflow-hidden"
-      style={{ minHeight: "calc(100vh - 64px)" }}
+      style={{ minHeight: "100vh" }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
