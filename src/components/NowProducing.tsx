@@ -70,7 +70,7 @@ export default function NowProducing() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-8 max-w-4xl">
         <div className="text-center">
-          <p className="text-white/40 uppercase text-sm tracking-widest mb-6">
+          <p className="text-white/40 uppercase text-lg md:text-xl tracking-widest mb-6">
             Actualmente produciendo
           </p>
           <div className="mb-8 flex justify-center">
