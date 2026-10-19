@@ -68,12 +68,18 @@ export default function NowProducing() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-8 max-w-4xl">
         <div className="text-center">
-          <p className="text-white/40 uppercase text-sm tracking-widest mb-4">
+          <p className="text-white/40 uppercase text-sm tracking-widest mb-6">
             Actualmente produciendo
           </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white">
-            {production.title}
-          </h1>
+          <div className="mb-8 flex justify-center">
+            <Image
+              src="/images/isidris-logo-title.png"
+              alt={production.title}
+              width={300}
+              height={200}
+              className="max-w-xs md:max-w-md h-auto"
+            />
+          </div>
           <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             {production.description}
           </p>
