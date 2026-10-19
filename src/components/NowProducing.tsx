@@ -67,7 +67,7 @@ export default function NowProducing() {
       </div>
 
       {/* Bottom fade overlay - mobile only */}
-      <div className="absolute bottom-0 left-0 right-0 md:hidden h-20 bg-gradient-to-b from-transparent to-black pointer-events-none z-20" />
+      <div className="absolute bottom-0 left-0 right-0 md:hidden h-24 bg-gradient-to-b from-transparent via-black/50 to-black pointer-events-none z-20" />
 
       {/* Label */}
       <p className="text-white/60 uppercase text-lg md:text-xl tracking-widest absolute left-0 right-0 w-full text-center" style={{ top: "100px" }}>
