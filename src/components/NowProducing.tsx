@@ -68,7 +68,7 @@ export default function NowProducing() {
       </div>
 
       {/* Label */}
-      <p className="text-white/80 uppercase text-lg md:text-xl tracking-widest absolute left-0 right-0 w-full text-center" style={{ top: "30px" }}>
+      <p className="text-white/80 uppercase text-lg md:text-xl tracking-widest absolute left-0 right-0 w-full text-center" style={{ top: "60px" }}>
         Actualmente produciendo
       </p>
 
