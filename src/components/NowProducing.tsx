@@ -65,7 +65,9 @@ export default function NowProducing() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-b from-transparent to-black pointer-events-none" />
+        <div className="absolute inset-0" style={{
+          background: "linear-gradient(to bottom, transparent 80%, rgba(0,0,0,0.5) 90%, rgb(0,0,0) 100%)"
+        }} />
       </div>
 
       {/* Bottom fade overlay */}
