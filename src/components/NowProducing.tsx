@@ -55,7 +55,7 @@ export default function NowProducing() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Background Image */}
-      <div className="absolute inset-0 top-4 md:top-12 bottom-4 md:bottom-12">
+      <div className="absolute inset-0 top-4 md:top-12 bottom-0 md:bottom-12">
         <Image
           src={production.image}
           alt={production.title}
