@@ -334,7 +334,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-white/30">WhatsApp</p>
-                    <p className="font-medium">261 534 6116</p>
+                    <p className="font-medium">261 553 1780</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
